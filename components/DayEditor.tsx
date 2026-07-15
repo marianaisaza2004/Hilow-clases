@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { CLASS_TEMPLATE } from "@/lib/class-template";
+import { formatDuration } from "@/lib/format";
 import type { PlanDayRow } from "@/lib/plans";
 import type { ExerciseRow } from "@/lib/exercise-catalog";
 
@@ -115,7 +116,9 @@ export function DayEditor({
                         </option>
                       ))}
                     </select>
-                    <span className="w-16 text-right text-xs text-neutral-500">{ex.duration_seconds}s</span>
+                    <span className="w-24 text-right text-xs text-neutral-500">
+                      {formatDuration(ex.duration_seconds)}
+                    </span>
                   </div>
                 ))}
                 {exercises.length === 0 && (
