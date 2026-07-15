@@ -67,11 +67,4 @@ export const CLASS_TEMPLATE: ClassBlock[] = [
     focusDescription: "Relajación",
     notes: "Recuperación y respiración.",
   },
-  {
-    key: "estiramiento",
-    label: "Estiramiento",
-    durationMinutes: 3,
-    focusDescription: "Full body",
-    notes: "Estiramiento de todos los grupos musculares trabajados.",
-  },
 ];
