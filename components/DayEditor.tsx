@@ -95,10 +95,16 @@ export function DayEditor({
 
           return (
             <div key={block.key} className="rounded-xl border border-neutral-800 bg-neutral-900 p-5">
-              <div className="mb-3 flex items-baseline justify-between">
-                <h2 className="font-semibold text-white">{block.label}</h2>
-                <span className="text-xs text-neutral-500">{block.durationMinutes} min</span>
+              <div className={block.key === "shavasana" ? "" : "mb-3"}>
+                <div className="flex items-baseline justify-between">
+                  <h2 className="font-semibold text-white">{block.label}</h2>
+                  <span className="text-xs text-neutral-500">{block.durationMinutes} min</span>
+                </div>
+                {block.key === "shavasana" && (
+                  <p className="mt-1 text-sm text-neutral-500">{block.notes}</p>
+                )}
               </div>
+              {block.key !== "shavasana" && (
               <div className="space-y-2">
                 {exercises.map((ex, i) => (
                   <div key={i} className="flex items-center gap-3 rounded-lg bg-neutral-800/60 p-3">
@@ -125,6 +131,7 @@ export function DayEditor({
                   <p className="text-sm text-neutral-600">Sin ejercicios en este bloque.</p>
                 )}
               </div>
+              )}
             </div>
           );
         })}

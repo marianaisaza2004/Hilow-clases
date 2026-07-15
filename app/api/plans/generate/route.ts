@@ -7,6 +7,9 @@ import { getAnthropicClient, CLAUDE_MODEL } from "@/lib/anthropic";
 import type Anthropic from "@anthropic-ai/sdk";
 
 const BLOCK_KEYS = CLASS_TEMPLATE.map((b) => b.key);
+// Shavasana is just "lie down, breathe" — there's no meaningful exercise to pick
+// from the strength catalog for it, so Claude isn't asked to fill it at all.
+const GENERATED_BLOCK_KEYS = BLOCK_KEYS.filter((key) => key !== "shavasana");
 const CHUNK_SIZE = 4; // small chunks so 7-8 calls/month stay well under max_tokens each.
 
 const EXERCISE_REF_SCHEMA = {
@@ -29,9 +32,9 @@ const DAY_PLAN_SCHEMA = {
     blocks: {
       type: "object" as const,
       properties: Object.fromEntries(
-        BLOCK_KEYS.map((key) => [key, { type: "array", items: EXERCISE_REF_SCHEMA }])
+        GENERATED_BLOCK_KEYS.map((key) => [key, { type: "array", items: EXERCISE_REF_SCHEMA }])
       ),
-      required: BLOCK_KEYS,
+      required: GENERATED_BLOCK_KEYS,
     },
   },
   required: ["day_number", "blocks"],
@@ -96,8 +99,8 @@ PRINCIPIOS DEL MÉTODO (deben respetarse en cada bloque):
 - Igual para Tren Superior: si el enfoque del día es un solo músculo (ej. Bíceps), ese músculo domina el bloque; si es "Full Upper", se reparte entre los 5 grupos de tren superior.
 - Varía la selección de ejercicios entre días con el mismo enfoque y respecto a días/meses anteriores (abajo) para que las clases se sientan dinámicas, sin sacrificar los principios anteriores.
 
-ESTRUCTURA FIJA DE BLOQUES POR CLASE (usa exactamente estas claves en "blocks"):
-${CLASS_TEMPLATE.map((b) => `- "${b.key}" (${b.label}, ${b.durationMinutes} min): ${b.focusDescription}. ${b.notes}`).join("\n")}
+ESTRUCTURA FIJA DE BLOQUES POR CLASE (usa exactamente estas claves en "blocks" — NO incluyas "shavasana", ese bloque no lleva ejercicios, es solo acostarse y respirar):
+${GENERATED_BLOCK_KEYS.map((key) => CLASS_TEMPLATE.find((b) => b.key === key)!).map((b) => `- "${b.key}" (${b.label}, ${b.durationMinutes} min): ${b.focusDescription}. ${b.notes}`).join("\n")}
 
 CATÁLOGO DE EJERCICIOS DISPONIBLES — usa SOLO el campo "ref" (ej. "e23") para referenciarlos, nunca el nombre completo:
 ${JSON.stringify(catalogForPrompt)}
