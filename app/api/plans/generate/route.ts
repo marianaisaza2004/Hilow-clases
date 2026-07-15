@@ -97,6 +97,7 @@ PRINCIPIOS DEL MÉTODO (deben respetarse en cada bloque):
 - Cada clase incluye SIEMPRE Core y Oblicuos, sin importar el enfoque del día.
 - Los bloques de pierna (Pierna Izquierda / Pierna Derecha) tocan los 4 sub-grupos (Center Glutes, Outer Glutes, Isquios, Aductores) en cada clase, pero el "enfoque principal" del día (ver más abajo) debe dominar esos bloques — los otros sub-grupos aparecen de forma complementaria y más breve.
 - Igual para Tren Superior: si el enfoque del día es un solo músculo (ej. Bíceps), ese músculo domina el bloque; si es "Full Upper", se reparte entre los 5 grupos de tren superior.
+- El bloque "oblicuos" trabaja lado derecho e izquierdo por separado, igual que las piernas: primero TODOS los ejercicios del lado derecho, luego TODOS los del lado izquierdo (no alternar). Cada entrada de ese bloque debe llevar "note" indicando el lado, ej: "Plancha Lateral" → note "Lado derecho", "Twister" → note "Lado derecho", luego "Plancha Lateral" otra vez → note "Lado izquierdo", "Twister" otra vez → note "Lado izquierdo". Ahí el "note" no es opcional.
 - Varía la selección de ejercicios entre días con el mismo enfoque y respecto a días/meses anteriores (abajo) para que las clases se sientan dinámicas, sin sacrificar los principios anteriores.
 
 ESTRUCTURA FIJA DE BLOQUES POR CLASE (usa exactamente estas claves en "blocks" — NO incluyas "shavasana", ese bloque no lleva ejercicios, es solo acostarse y respirar):

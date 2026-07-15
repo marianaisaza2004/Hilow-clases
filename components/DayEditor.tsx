@@ -122,6 +122,11 @@ export function DayEditor({
                         </option>
                       ))}
                     </select>
+                    {ex.sequence_note && (
+                      <span className="shrink-0 rounded bg-neutral-700/60 px-2 py-0.5 text-xs text-neutral-300">
+                        {ex.sequence_note}
+                      </span>
+                    )}
                     <span className="w-24 text-right text-xs text-neutral-500">
                       {formatDuration(ex.duration_seconds)}
                     </span>

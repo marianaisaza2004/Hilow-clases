@@ -36,8 +36,9 @@ export const CLASS_TEMPLATE: ClassBlock[] = [
     key: "oblicuos",
     label: "Oblicuos",
     durationMinutes: 5,
-    focusDescription: "Core lateral",
-    notes: "Activación de oblicuos.",
+    focusDescription: "Core lateral (derecho e izquierdo)",
+    notes:
+      "Fatiga un lado completo antes de pasar al otro (igual que las piernas): todos los ejercicios del lado derecho primero, luego todos los del lado izquierdo. Cada ejercicio debe indicar su lado.",
   },
   {
     key: "pierna_derecha",
